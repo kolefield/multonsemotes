@@ -254,6 +254,9 @@ local patterns = {
 local function TwitchEmotesAnimator_UpdateEmoteInFontString(fontstring, widthOverride, heightOverride)
     local txt = fontstring:GetText();
     if (txt ~= nil) then
+        if issecretvalue(txt) then
+            return
+        end
         for _, pattern in ipairs(patterns) do
             for emoteTextureString in string.gmatch(txt, pattern) do
                 local imagepath = string.match(emoteTextureString, "|T(Interface\\AddOns\\TwitchEmotes\\Emotes.-%.tga).-|t")
