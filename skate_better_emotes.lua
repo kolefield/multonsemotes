@@ -54,6 +54,7 @@ local defaultPack = {
     ["wiudebuff"] = "Interface\\AddOns\\SkateBetterEmotes\\Emotes\\wiudebuff.tga:28:28",
     ["damn"] = "Interface\\AddOns\\SkateBetterEmotes\\Emotes\\damn.tga:28:28",
     ["plead"] = "Interface\\AddOns\\SkateBetterEmotes\\Emotes\\plead.tga:28:28",
+    ["bonnie"] = "Interface\\AddOns\\SkateBetterEmotes\\Emotes\\bonnie.tga:28:28",
 }
 
 local animatedPack = {
@@ -134,6 +135,7 @@ local emoticons = {
     ["wiudebuff"] = "wiudebuff",
     ["damn"] = "damn",
     ["plead"] = "plead",
+    ["bonnie"] = "bonnie",
 }
 
 local dropdown = {
@@ -193,6 +195,7 @@ local dropdown = {
     "wiudebuff",
     "damn",
     "plead",
+    "bonnie",
 }
 
 local function AppendNewEmotes()
