@@ -1,8 +1,8 @@
 ## Interface: 120000, 120001
 ## Title: Skate Better Emotes
 ## IconTexture: Interface\AddOns\TwitchEmotes\Emotes\1337.tga
-## Notes: Custom emotes made for Skate Better-Zul'jin
-## Author: Ren9790 and multon
+## Notes: Custom emotes made for Skate Better-Zul'jin. Kell
+## Author: Ren9790 and Multon
 ## Version: 1.0.13
 ## Dependencies: TwitchEmotes
 
