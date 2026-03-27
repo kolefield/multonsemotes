@@ -55,6 +55,12 @@ local defaultPack = {
     ["damn"] = "Interface\\AddOns\\SkateBetterEmotes\\Emotes\\damn.tga:28:28",
     ["plead"] = "Interface\\AddOns\\SkateBetterEmotes\\Emotes\\plead.tga:28:28",
     ["bonnie"] = "Interface\\AddOns\\SkateBetterEmotes\\Emotes\\bonnie.tga:28:28",
+    ["catstare"] = "Interface\\AddOns\\SkateBetterEmotes\\Emotes\\catstare.tga:28:28",
+    ["catstare2"] = "Interface\\AddOns\\SkateBetterEmotes\\Emotes\\catstare2.tga:28:28",
+    ["doggie"] = "Interface\\AddOns\\SkateBetterEmotes\\Emotes\\doggie.tga:28:28",
+    ["eye"] = "Interface\\AddOns\\SkateBetterEmotes\\Emotes\\eye.tga:28:28",
+    ["eye2"] = "Interface\\AddOns\\SkateBetterEmotes\\Emotes\\eye2.tga:28:28",
+    ["wink"] = "Interface\\AddOns\\SkateBetterEmotes\\Emotes\\wink.tga:28:28",
 }
 
 local animatedPack = {
@@ -136,6 +142,12 @@ local emoticons = {
     ["damn"] = "damn",
     ["plead"] = "plead",
     ["bonnie"] = "bonnie",
+    ["catstare"] = "catstare",
+    ["catstare2"] = "catstare2",
+    ["doggie"] = "doggie",
+    ["eye"] = "eye",
+    ["eye2"] = "eye2",
+    ["wink"] = "wink",
 }
 
 local dropdown = {
@@ -196,6 +208,12 @@ local dropdown = {
     "damn",
     "plead",
     "bonnie",
+    "catstare",
+    "catstare2",
+    "doggie",
+    "eye",
+    "eye2",
+    "wink",
 }
 
 local function AppendNewEmotes()
