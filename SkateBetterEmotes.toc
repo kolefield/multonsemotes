@@ -3,7 +3,7 @@
 ## IconTexture: Interface\AddOns\TwitchEmotes\Emotes\1337.tga
 ## Notes: Custom emotes made for Skate Better-Zul'jin. Kell
 ## Author: Ren9790 and Multon
-## Version: 1.0.14
+## Version: 1.0.15
 ## Dependencies: TwitchEmotes
 
 skate_better_emotes.lua
