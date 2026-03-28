@@ -61,6 +61,10 @@ local defaultPack = {
     ["eye"] = "Interface\\AddOns\\SkateBetterEmotes\\Emotes\\eye.tga:28:28",
     ["eye2"] = "Interface\\AddOns\\SkateBetterEmotes\\Emotes\\eye2.tga:28:28",
     ["wink"] = "Interface\\AddOns\\SkateBetterEmotes\\Emotes\\wink.tga:28:28",
+    ["bollocks"] = "Interface\\AddOns\\SkateBetterEmotes\\Emotes\\bollocks.tga:28:28",
+    ["catNerd"] = "Interface\\AddOns\\SkateBetterEmotes\\Emotes\\catNerd.tga:28:28",
+    ["oopsie"] = "Interface\\AddOns\\SkateBetterEmotes\\Emotes\\oopsie.tga:28:28",
+    ["67"] = "Interface\\AddOns\\SkateBetterEmotes\\Emotes\\67.tga:28:28",
 }
 
 local animatedPack = {
@@ -83,6 +87,7 @@ local animatedPack = {
     ["Interface\\AddOns\\SkateBetterEmotes\\Emotes\\nerdle.tga"] = {["nFrames"] = 23, ["frameWidth"] = 32, ["frameHeight"] = 32, ["imageWidth"] = 32, ["imageHeight"] = 1024, ["framerate"] = 10}, -- adjust framerate as needed
     ["Interface\\AddOns\\SkateBetterEmotes\\Emotes\\tssk.tga"] = {["nFrames"] = 24, ["frameWidth"] = 32, ["frameHeight"] = 32, ["imageWidth"] = 32, ["imageHeight"] = 1024, ["framerate"] = 24}, -- adjust framerate as needed
     ["Interface\\AddOns\\SkateBetterEmotes\\Emotes\\diesofcringe.tga"] = {["nFrames"] = 117, ["frameWidth"] = 32, ["frameHeight"] = 32, ["imageWidth"] = 32, ["imageHeight"] = 4096, ["framerate"] = 30}, -- adjust framerate as needed
+    ["Interface\\AddOns\\SkateBetterEmotes\\Emotes\\67.tga"] = {["nFrames"] = 11, ["frameWidth"] = 32, ["frameHeight"] = 32, ["imageWidth"] = 32, ["imageHeight"] = 512, ["framerate"] = 15}, -- adjust framerate as needed
 }
 
 local emoticons = {
@@ -148,6 +153,10 @@ local emoticons = {
     ["eye"] = "eye",
     ["eye2"] = "eye2",
     ["wink"] = "wink",
+    ["bollocks"] = "bollocks",
+    ["catNerd"] = "catNerd",
+    ["oopsie"] = "oopsie",
+    ["67"] = "67",
 }
 
 local dropdown = {
@@ -214,6 +223,10 @@ local dropdown = {
     "eye",
     "eye2",
     "wink",
+    "bollocks",
+    "catNerd",
+    "oopsie",
+    "67",
 }
 
 local function AppendNewEmotes()
