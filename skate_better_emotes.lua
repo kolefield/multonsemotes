@@ -159,8 +159,8 @@ local emoticons = {
     ["67"] = "67",
 }
 
-local dropdown = {
-    "SKATE BETTER",
+local dropdown_1 = {
+    "Multons Emotes 1",
     "xddwalk",
     "bla",
     "catKiss",
@@ -175,13 +175,15 @@ local dropdown = {
     "caught",
     "evaporate",
     "revaporate",
---    ":goyf:",
     ":ok:",
     "pedro",
     "cumby",
     ":deal:",
     ":nodeal:",
     "cuh",
+}
+local dropdown_2 = {
+    "Multons Emotes 2",
     "idkwtfthisisbutparsedwantedmetoaddit",
     "uuh",
     "waaa",
@@ -202,6 +204,9 @@ local dropdown = {
     ":uhh:",
     ":wiz:",
     "fredpls",
+}
+local dropdown_3 = {
+    "Multons Emotes 3",
     "scweam",
     "DIE",
     ":HOLY:",
@@ -259,7 +264,10 @@ local function AppendNewEmotes()
         debugPrint("Emoticons - Appended emote:", emote, "Name:", name)
     end
     -- Add custom minimap dropdown
-    TwitchEmotes_dropdown_options[#TwitchEmotes_dropdown_options + 1] = dropdown
+    local dropdown_count = #TwitchEmotes_dropdown_options
+    TwitchEmotes_dropdown_options[dropdown_count + 1] = dropdown_1
+    TwitchEmotes_dropdown_options[dropdown_count + 2] = dropdown_2
+    TwitchEmotes_dropdown_options[dropdown_count + 3] = dropdown_3
     -- Remove LMAO because i like the text better than the emoji lol
     TwitchEmotes_defaultpack["LMAO"] = nil
 end
