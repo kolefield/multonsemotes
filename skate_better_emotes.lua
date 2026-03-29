@@ -181,6 +181,16 @@ local dropdown_1 = {
     ":deal:",
     ":nodeal:",
     "cuh",
+    "scweam",
+    "DIE",
+    ":HOLY:",
+    ":ta:",
+    "freakbomb",
+    "holymoly",
+    "mhmm",
+    "sadding",
+    "nerdle",
+    "tssk",
 }
 local dropdown_2 = {
     "Multons Emotes 2",
@@ -204,19 +214,6 @@ local dropdown_2 = {
     ":uhh:",
     ":wiz:",
     "fredpls",
-}
-local dropdown_3 = {
-    "Multons Emotes 3",
-    "scweam",
-    "DIE",
-    ":HOLY:",
-    ":ta:",
-    "freakbomb",
-    "holymoly",
-    "mhmm",
-    "sadding",
-    "nerdle",
-    "tssk",
     "diesofcringe",
     "wiudebuff",
     "damn",
@@ -267,7 +264,6 @@ local function AppendNewEmotes()
     local dropdown_count = #TwitchEmotes_dropdown_options
     TwitchEmotes_dropdown_options[dropdown_count + 1] = dropdown_1
     TwitchEmotes_dropdown_options[dropdown_count + 2] = dropdown_2
-    TwitchEmotes_dropdown_options[dropdown_count + 3] = dropdown_3
     -- Remove LMAO because i like the text better than the emoji lol
     TwitchEmotes_defaultpack["LMAO"] = nil
 end
@@ -407,6 +403,105 @@ local function Emoticons_SetAutoComplete(state)
 end
 
 
+local function CreateEmoteBrowser()
+    if SBE_EmoteBrowserFrame then
+        SBE_EmoteBrowserFrame:Show()
+        return
+    end
+
+    local EMOTE_SIZE = 64
+    local CELL_WIDTH = 90
+    local CELL_HEIGHT = 90
+    local COLUMNS = 5
+    local WINDOW_WIDTH = COLUMNS * CELL_WIDTH + 50
+    local WINDOW_HEIGHT = 500
+
+    local mainFrame = CreateFrame("Frame", "SBE_EmoteBrowserFrame", UIParent, "BasicFrameTemplateWithInset")
+    mainFrame:SetSize(WINDOW_WIDTH, WINDOW_HEIGHT)
+    mainFrame:SetPoint("CENTER")
+    mainFrame:SetMovable(true)
+    mainFrame:EnableMouse(true)
+    mainFrame:RegisterForDrag("LeftButton")
+    mainFrame:SetScript("OnDragStart", mainFrame.StartMoving)
+    mainFrame:SetScript("OnDragStop", mainFrame.StopMovingOrSizing)
+    mainFrame:SetFrameStrata("DIALOG")
+    mainFrame.TitleText:SetText("SkateBetter Emotes")
+
+    local scrollFrame = CreateFrame("ScrollFrame", nil, mainFrame, "UIPanelScrollFrameTemplate")
+    scrollFrame:SetPoint("TOPLEFT", mainFrame, "TOPLEFT", 12, -32)
+    scrollFrame:SetPoint("BOTTOMRIGHT", mainFrame, "BOTTOMRIGHT", -30, 10)
+
+    local content = CreateFrame("Frame", nil, scrollFrame)
+    content:SetWidth(COLUMNS * CELL_WIDTH)
+    scrollFrame:SetScrollChild(content)
+
+    -- Build a sorted, deduplicated emote list
+    local emoteList = {}
+    local seen = {}
+    for name, _ in pairs(defaultPack) do
+        if not seen[name] then
+            seen[name] = true
+            table.insert(emoteList, name)
+        end
+    end
+    table.sort(emoteList)
+
+    local animatedTextures = {}
+
+    local col = 0
+    local row = 0
+    for _, name in ipairs(emoteList) do
+        local dirString = defaultPack[name]
+        local texPath = string.match(dirString, "^(.-%.tga)")
+
+        local cellFrame = CreateFrame("Frame", nil, content)
+        cellFrame:SetSize(CELL_WIDTH, CELL_HEIGHT)
+        cellFrame:SetPoint("TOPLEFT", content, "TOPLEFT",
+            col * CELL_WIDTH + 5,
+            -(row * CELL_HEIGHT + 5))
+
+        local tex = cellFrame:CreateTexture(nil, "ARTWORK")
+        tex:SetSize(EMOTE_SIZE, EMOTE_SIZE)
+        tex:SetPoint("TOP", cellFrame, "TOP", 0, -5)
+        tex:SetTexture(texPath)
+
+        local animdata = animatedPack[texPath]
+        if animdata then
+            -- Start on frame 0
+            local frameH = animdata.frameHeight / animdata.imageHeight
+            tex:SetTexCoord(0, 1, 0, frameH)
+            table.insert(animatedTextures, {tex = tex, animdata = animdata})
+        end
+
+        local label = cellFrame:CreateFontString(nil, "OVERLAY", "GameFontHighlightSmall")
+        label:SetPoint("BOTTOM", cellFrame, "BOTTOM", 0, 5)
+        label:SetWidth(CELL_WIDTH - 4)
+        label:SetText(name)
+        label:SetJustifyH("CENTER")
+        label:SetWordWrap(false)
+
+        col = col + 1
+        if col >= COLUMNS then
+            col = 0
+            row = row + 1
+        end
+    end
+
+    content:SetHeight(math.ceil(#emoteList / COLUMNS) * CELL_HEIGHT + 10)
+
+    -- Drive animations via OnUpdate
+    mainFrame:SetScript("OnUpdate", function()
+        local now = GetTime()
+        for _, entry in ipairs(animatedTextures) do
+            local d = entry.animdata
+            local frameIndex = math.floor(now * d.framerate) % d.nFrames
+            local frameH = d.frameHeight / d.imageHeight
+            local top = frameIndex * frameH
+            entry.tex:SetTexCoord(0, 1, top, top + frameH)
+        end
+    end)
+end
+
 local frame = CreateFrame("Frame")
 frame:RegisterEvent("ADDON_LOADED")
 
@@ -416,6 +511,10 @@ frame:SetScript("OnEvent", function(self, event, addonName)
         _G.TwitchEmotesAnimator_UpdateEmoteInFontString = TwitchEmotesAnimator_UpdateEmoteInFontString
         _G.Emoticons_SetAutoComplete = Emoticons_SetAutoComplete
         Emoticons_SetAutoComplete(Emoticons_Settings["ENABLE_AUTOCOMPLETE"])
+        SLASH_SBEEMOTES1 = "/emotes"
+        SlashCmdList["SBEEMOTES"] = function()
+            CreateEmoteBrowser()
+        end
         self:UnregisterEvent("ADDON_LOADED")
     end
 end)
