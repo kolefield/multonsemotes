@@ -65,6 +65,9 @@ local defaultPack = {
     ["catNerd"] = "Interface\\AddOns\\SkateBetterEmotes\\Emotes\\catNerd.tga:28:28",
     ["oopsie"] = "Interface\\AddOns\\SkateBetterEmotes\\Emotes\\oopsie.tga:28:28",
     ["67"] = "Interface\\AddOns\\SkateBetterEmotes\\Emotes\\67.tga:28:28",
+    ["carter"] = "Interface\\AddOns\\SkateBetterEmotes\\Emotes\\carter.tga:28:28",
+    ["catPunch"] = "Interface\\AddOns\\SkateBetterEmotes\\Emotes\\catPunch.tga:28:28",
+    ["hardasscuhedit"] = "Interface\\AddOns\\SkateBetterEmotes\\Emotes\\hardasscuhedit.tga:28:28",
 }
 
 local animatedPack = {
@@ -88,6 +91,8 @@ local animatedPack = {
     ["Interface\\AddOns\\SkateBetterEmotes\\Emotes\\tssk.tga"] = {["nFrames"] = 24, ["frameWidth"] = 32, ["frameHeight"] = 32, ["imageWidth"] = 32, ["imageHeight"] = 1024, ["framerate"] = 24}, -- adjust framerate as needed
     ["Interface\\AddOns\\SkateBetterEmotes\\Emotes\\diesofcringe.tga"] = {["nFrames"] = 117, ["frameWidth"] = 32, ["frameHeight"] = 32, ["imageWidth"] = 32, ["imageHeight"] = 4096, ["framerate"] = 30}, -- adjust framerate as needed
     ["Interface\\AddOns\\SkateBetterEmotes\\Emotes\\67.tga"] = {["nFrames"] = 11, ["frameWidth"] = 32, ["frameHeight"] = 32, ["imageWidth"] = 32, ["imageHeight"] = 512, ["framerate"] = 15}, -- adjust framerate as needed
+    ["Interface\\AddOns\\SkateBetterEmotes\\Emotes\\catPunch.tga"] = {["nFrames"] = 102, ["frameWidth"] = 32, ["frameHeight"] = 32, ["imageWidth"] = 32, ["imageHeight"] = 4096, ["framerate"] = 15}, -- adjust framerate as needed
+    ["Interface\\AddOns\\SkateBetterEmotes\\Emotes\\hardasscuhedit.tga"] = {["nFrames"] = 189, ["frameWidth"] = 32, ["frameHeight"] = 32, ["imageWidth"] = 32, ["imageHeight"] = 8192, ["framerate"] = 15}, -- adjust framerate as needed
 }
 
 local emoticons = {
@@ -157,6 +162,9 @@ local emoticons = {
     ["catNerd"] = "catNerd",
     ["oopsie"] = "oopsie",
     ["67"] = "67",
+    ["carter"] = "carter",
+    ["catPunch"] = "catPunch",
+    ["hardasscuhedit"] = "hardasscuhedit",
 }
 
 local dropdown_1 = {
@@ -229,6 +237,9 @@ local dropdown_2 = {
     "catNerd",
     "oopsie",
     "67",
+    "carter",
+    "catPunch",
+    "hardasscuhedit",
 }
 
 local function AppendNewEmotes()
